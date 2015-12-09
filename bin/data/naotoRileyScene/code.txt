@@ -1,0 +1,32 @@
+for (int i = 0; i < num; i++) {
+    
+    ofPath path;
+    
+    int radius = height * j;
+    arcLength += radius*TWO_PI/num;
+    float theta = arcLength /radius;
+    
+    int x0 = radius*cos(theta+j+shift)+shiftX*j;
+    int y0 = radius*sin(theta+j+shift)+shiftY*j;
+    
+    path.moveTo(x0,y0);
+    
+    int x1 = radius*cos(theta+width+j+shift)+shiftX*j;
+    int y1 = radius*sin(theta+width+j+shift)+shiftY*j;
+    
+    path.lineTo(x1,y1);
+    
+    int x2 = (radius+height)*cos(theta+width+j)+shiftX*(j+1);
+    int y2 = (radius+height)*sin(theta+width+j)+shiftY*(j+1);
+    
+    path.lineTo(x2,y2);
+    
+    int x3 = (radius+height)*cos(theta+j)+shiftX*(j+1);
+    int y3 = (radius+height)*sin(theta+j)+shiftY*(j+1);
+    
+    path.lineTo(x3,y3);
+    
+    path.close();
+    path.draw();
+    
+}
